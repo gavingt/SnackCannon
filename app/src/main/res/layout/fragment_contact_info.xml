@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.gavinsappcreations.snackcannon.ui.login.contact_info.ContactInfoViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_marginRight="@dimen/margin_normal"
+        android:orientation="vertical"
+        tools:context=".ui.login.contact_info.ContactInfoFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/instructions_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginRight="@dimen/margin_normal"
+                    android:text="@string/enter_the_information_below_to_complete_your_user_profile"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/full_name_textInputLayout"
+                    style="@style/TextInputLayoutAppearance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    app:hintAnimationEnabled="false"
+                    android:hint="@string/full_name"
+                    app:layout_constraintTop_toBottomOf="@id/instructions_textView"
+                    app:placeholderText="@string/first_and_last_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/full_name_textInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_badge"
+                        android:drawablePadding="@dimen/margin_12dp"
+                        android:autofillHints="name"
+                        android:drawableTint="@color/text_input_drawable_tint"
+                        android:maxLength="100"
+                        android:text="@={viewModel.viewState.fullName}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_address_textInputLayout"
+                    style="@style/TextInputLayoutAppearance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:hint="@string/email_address"
+                    app:hintAnimationEnabled="false"
+                    errorTextResource="@{viewModel.viewState.emailAddressErrorTextResource}"
+                    app:layout_constraintTop_toBottomOf="@id/full_name_textInputLayout"
+                    app:placeholderText="@string/enter_a_valid_email_address">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email_address_textInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_email"
+                        android:drawablePadding="@dimen/margin_12dp"
+                        android:autofillHints="emailAddress"
+                        android:drawableTint="@color/text_input_drawable_tint"
+                        android:maxLength="200"
+                        android:text="@={viewModel.viewState.emailAddress}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:layout_marginBottom="@dimen/margin_12dp"
+            android:enabled="@{viewModel.viewState.submitButtonEnabled}"
+            android:onClick="@{() -> viewModel.onSubmitButtonClicked()}"
+            android:paddingTop="@dimen/margin_normal"
+            android:paddingBottom="@dimen/margin_normal"
+            android:text="@string/continue_button_text" />
+
+    </LinearLayout>
+
+</layout>

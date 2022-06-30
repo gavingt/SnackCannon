@@ -1,0 +1,76 @@
+Test-driven development (remember to disable animations on phone before testing)
+Dagger Hilt
+MotionLayout
+fake pull requests with another Github account
+
+Should it be a local database of product ids, names, prices? And then we only use Retrofit for ProductDetailsFragment?
+
+title: SnackCannon (Cannon written in red)
+primary color: teal, secondary: aqua, accent: light orange
+shared element transitions when clicking on a product and having its productDetails screen come up
+login with Firebase to store shopping cart/profile/address/user details
+push notifications for delivery updates
+Carousels for "Most popular", "Buy again", "Deals", and each of the 7 categories
+Delivery address and search box both disappear when you scroll down but reappear when you scroll up at all (same as StatisticsActivity)
+Addresses get formatted without periods
+Don't allow future orders, don't store order history
+
+We keep either Explore or Search item highlighted depending on which on the user used to reach the screen they're at.
+
+Prefer using "true" instead of "1"
+fields that end with _t are dates in the UNIX timestamp format (number of seconds since Jan 1st 1970)
+fields that end with _datetime are dates in the iso8601 format: yyyy-mm-ddThh:mn:ssZ
+fields that end with _tags are comma separated list of tags (e.g. categories_tags is the set of normalized tags computer from the categories field)
+fields that end with a language 2 letter code (e.g. fr for French) is the set of tags in that language
+fields that end with _100g correspond to the amount of a nutriment (in g) for 100 g or 100 ml of product
+
+For "Most popular" and other such carousels, we'll create premade lists of barcodes in the app that point to those snacks
+
+"excludes" is the opposite of "contains"
+
+Capitalize first letter of every word of product names.
+
+fields for list of products:
+code,product_name,generic_name,quantity,brands,categories,image_url,image_small_url
+
+fields for individual product:
+code,product_name,generic_name,quantity,brands,brands_tags,categories,image_url,image_small_url,energy,proteins,carbohydrates,sugars,saturated-fat
+,fat,sodium,trans-fat
+
+Return a single product based on barcode: https://us.openfoodfacts.org/api/v0/product/0888849000012&json=true&fields=code,product_name,generic_name,quantity,brands,brands_tags,categories,image_url,image_small_url,energy,proteins,carbohydrates,sugars,saturated-fat,fat,sodium,trans-fat
+
+CATEGORIES:
+
+Search for specific term:
+https://us.openfoodfacts.org/cgi/search.pl?search_simple=true&action=process&json=true&sort_by=unique_scans_n&page_size=40&fields=code,product_name,generic_name,quantity,brands,categories,image_url,image_small_url&tagtype_0=categories_lc&tag_contains_0=contains&tag_0=en&tagtype_1=categories&tag_contains_1=contains&tag_1=snacks&search_terms=banana
+
+Baked snacks:
+https://us.openfoodfacts.org/cgi/search.pl?action=process&json=true&sort_by=unique_scans_n&page_size=40&page=1&fields=code,product_name,generic_name,quantity,brands,categories,image_url,image_small_url&tagtype_0=categories_lc&tag_contains_0=contains&tag_0=en&tagtype_1=categories&tag_contains_1=contains&1=biscuits-and-cakes
+
+Salty snacks:
+https://us.openfoodfacts.org/cgi/search.pl?action=process&json=true&sort_by=unique_scans_n&page_size=40&page=1&fields=code,product_name,generic_name,quantity,brands,categories,image_url,image_small_url&tagtype_0=categories_lc&tag_contains_0=contains&tag_0=en&tagtype_1=categories&tag_contains_1=contains&tag_1=salty-snacks
+
+Candy:
+https://us.openfoodfacts.org/cgi/search.pl?action=process&json=true&sort_by=unique_scans_n&page_size=40&page=1&fields=code,product_name,generic_name,quantity,brands,categories,image_url,image_small_url&tagtype_0=categories_lc&tag_contains_0=contains&tag_0=en&tagtype_1=categories&tag_contains_1=contains&tag_1=confectioneries
+
+Drinks:
+https://us.openfoodfacts.org/cgi/search.pl?action=process&json=true&sort_by=unique_scans_n&page_size=40&page=1&fields=code,product_name,generic_name,quantity,brands,categories,image_url,image_small_url&tagtype_0=categories_lc&tag_contains_0=contains&tag_0=en&tagtype_1=categories&tag_contains_1=contains&tag_1=sweetened-beverages
+
+Frozen snacks:
+https://us.openfoodfacts.org/cgi/search.pl?action=process&json=true&sort_by=unique_scans_n&page_size=40&page=1&fields=code,product_name,generic_name,quantity,brands,categories,image_url,image_small_url&tagtype_0=categories_lc&tag_contains_0=contains&tag_0=en&tagtype_1=categories&tag_contains_1=contains&tag_1=frozen-desserts
+
+Nuts:
+https://us.openfoodfacts.org/cgi/search.pl?action=process&json=true&sort_by=unique_scans_n&page_size=40&page=1&fields=code,product_name,generic_name,quantity,brands,categories,image_url,image_small_url&tagtype_0=categories_lc&tag_contains_0=contains&tag_0=en&tagtype_1=categories&tag_contains_1=contains&tag_1=nuts
+
+go back and fix UpcomingGames (use Paging 3's loading status to fix DatabaseState, or just add an initLoading state to DatabaseState)
+look into Viewbinding instead of databinding
+
+add swipe to refresh in case internet goes out
+Category data will be stored in Firebase (in a globally accessible folder)
+Make a more snack-like loading indicator
+order Sienna's presents
+
+should I cache the JSON responses for categories?
+
+
+

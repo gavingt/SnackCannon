@@ -1,0 +1,35 @@
+<resources>
+    <string name="google_places_api_key">AIzaSyAkkZ1JGxssfd9Ny7sD-6uGrwYr79LVPm8</string>
+
+    <string name="app_name">SnackCannon</string>
+    <string name="invalid_phone_number">Invalid phone number</string>
+    <string name="code_entry_instructions">Enter the 6-digit code sent to you at %s:</string>
+    <string name="did_not_receive_code">I didn\'t receive a code (0:%02d)</string>
+    <string name="submit_code_button_text">Submit code</string>
+    <string name="continue_button_text">Continue</string>
+    <string name="phone_number">Phone number</string>
+    <string name="enter_your_phone_number_below_to_get_started">Enter your phone number below to get started:</string>
+    <string name="snacks_straight_to_your_door_in_minutes">Snacks straight to your door in minutes</string>
+    <string name="cannon">Cannon</string>
+    <string name="snack">Snack</string>
+    <string name="wrong_code_entered">Wrong code entered</string>
+    <string name="something_went_wrong_while_signing_in">Something went wrong while signing in</string>
+    <string name="delivery_notes">Delivery notes</string>
+    <string name="unit_number">Unit number</string>
+    <string name="delivery_address">Delivery address</string>
+    <string name="address_autocomplete_error">An error occurred: %s</string>
+    <string name="first_and_last_name">First and last name</string>
+    <string name="full_name">Full name</string>
+    <string name="email_address">Email address</string>
+    <string name="enter_a_valid_email_address">Enter a valid email address</string>
+    <string name="enter_the_information_below_to_complete_your_user_profile">Enter the information below to complete your user profile:</string>
+    <string name="enter_your_delivery_address_followed_by_any_optional_information">Enter your delivery address, followed by any optional information:</string>
+    <string name="delivery_to">Delivery to:</string>
+    <string name="candy">Candy</string>
+    <string name="baked">Baked</string>
+    <string name="salty">Salty</string>
+    <string name="nuts">Nuts</string>
+    <string name="frozen">Frozen</string>
+    <string name="drinks">Drinks</string>
+
+</resources>

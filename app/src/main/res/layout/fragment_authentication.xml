@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.gavinsappcreations.snackcannon.ui.login.authentication.AuthenticationViewModel" />
+    </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root_constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            tools:context=".ui.login.authentication.AuthenticationFragment">
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/phone_number_group"
+                visibleIfTrue="@{viewModel.viewState.phoneNumberLayoutVisible}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="logo, snack_textView, cannon_textView, instructions_textView, subtitle_textView,
+                                            countryCodePicker, phone_number_editText,bottom_input_background_view,
+                                            phone_number_background_view, submit_phone_number_button"
+                tools:visibility="visible" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/code_entry_group"
+                visibleIfTrue="@{!viewModel.viewState.phoneNumberLayoutVisible}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="code_entry_instructions_textView, code_entry_pinField,
+                                            resend_code_button, submit_code_button"
+                tools:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                visibleIfTrue="@{viewModel.viewState.progressBarVisible}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="@dimen/authentication_fragment_margin_top"
+                    android:src="@drawable/cannon_and_chips_486dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/snack_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="1dp"
+                    android:text="@string/snack"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/cannon_textView"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+                <TextView
+                    android:id="@+id/cannon_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cannon"
+                    android:textColor="@color/colorCannonRed"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/snack_textView"
+                    app:layout_constraintTop_toTopOf="@+id/snack_textView" />
+
+                <TextView
+                    android:id="@+id/subtitle_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_normal"
+                    android:layout_marginRight="@dimen/margin_normal"
+                    android:gravity="center_horizontal"
+                    android:text="@string/snacks_straight_to_your_door_in_minutes"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/snack_textView" />
+
+            <View
+                android:id="@+id/bottom_input_background_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/colorBackground"
+                app:layout_constraintTop_toTopOf="@id/instructions_textView"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/instructions_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_horizontal"
+                android:text="@string/enter_your_phone_number_below_to_get_started"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/phone_number_background_view"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <View
+                android:id="@+id/phone_number_background_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/phone_number_entry_background"
+                app:layout_constraintBottom_toTopOf="@id/submit_phone_number_button"
+                app:layout_constraintTop_toTopOf="@id/countryCodePicker" />
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/countryCodePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                app:ccp_defaultNameCode="US"
+                app:ccp_showNameCode="false"
+                app:layout_constraintBottom_toBottomOf="@id/phone_number_background_view"
+                app:layout_constraintLeft_toLeftOf="@id/phone_number_background_view" />
+
+            <EditText
+                android:id="@+id/phone_number_editText"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@null"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:maxLength="30"
+                android:paddingEnd="@dimen/margin_normal"
+                android:text="@={viewModel.viewState.phoneNumber}"
+                app:layout_constraintBottom_toBottomOf="@id/countryCodePicker"
+                app:layout_constraintLeft_toRightOf="@id/countryCodePicker"
+                app:layout_constraintRight_toRightOf="@id/phone_number_background_view"
+                app:layout_constraintTop_toTopOf="@id/countryCodePicker" />
+
+            <Button
+                android:id="@+id/submit_phone_number_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/authentication_fragment_margin_bottom"
+                android:enabled="@{viewModel.viewState.submitPhoneNumberButtonEnabled}"
+                android:onClick="@{() -> viewModel.verifyPhoneNumber()}"
+                android:paddingTop="@dimen/margin_normal"
+                android:paddingBottom="@dimen/margin_normal"
+                android:text="@string/continue_button_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/code_entry_instructions_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/authentication_fragment_margin_top"
+                    android:layout_marginRight="@dimen/margin_normal"
+                    android:gravity="center_horizontal"
+                    android:padding="16dp"
+                    android:text="@{String.format(@string/code_entry_instructions, viewModel.viewState.phoneNumber)}"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/code_entry_pinField"
+                    app:layout_constraintRight_toRightOf="@id/code_entry_pinField"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Enter the 6-digit code sent to you at (480) 555-5555:" />
+
+                <com.poovam.pinedittextfield.SquarePinField
+                    android:id="@+id/code_entry_pinField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_normal"
+                    android:layout_marginRight="@dimen/margin_normal"
+                    android:afterTextChanged="@{(text) -> viewModel.enableSubmitCodeButton(text)}"
+                    android:inputType="number"
+                    android:textSelectHandle="@drawable/text_handle"
+                    android:textSize="16sp"
+                    app:cornerRadius="10dp"
+                    app:fieldBgColor="#ddd"
+                    app:highlightColor="?attr/colorPrimary"
+                    app:isCursorEnabled="true"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/code_entry_instructions_textView"
+                    app:noOfFields="6" />
+
+                <Button
+                    android:id="@+id/resend_code_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_normal"
+                    android:enabled="@{viewModel.viewState.resendCodeButtonEnabled}"
+                    android:onClick="@{() -> viewModel.didNotReceiveCodeButtonPressed()}"
+                    android:text="@{String.format(@string/did_not_receive_code, viewModel.viewState.codeResendTimeRemainingInSeconds)}"
+                    android:textSize="12sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/code_entry_pinField"
+                    tools:text="I didn't receive a code (0:20)" />
+
+            <Button
+                android:id="@+id/submit_code_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/authentication_fragment_margin_bottom"
+                android:enabled="@{viewModel.viewState.submitCodeButtonEnabled}"
+                android:onClick="@{() -> viewModel.onSubmitCodeButtonClick(codeEntryPinField.getText().toString())}"
+                android:paddingTop="@dimen/margin_normal"
+                android:paddingBottom="@dimen/margin_normal"
+                android:text="@string/submit_code_button_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

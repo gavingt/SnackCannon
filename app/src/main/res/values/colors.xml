@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4DAEA5</color>
+    <color name="colorSecondary">#1E7A89</color>
+    <color name="colorAccent">#EF6C00</color>
+    <color name="colorBackground">#F7F7F7</color>
+    <color name="colorBackgroundVariant">#FFFFFF</color>
+    <color name="colorOnBackgroundUltraHighContrast">#444444</color>
+    <color name="colorOnBackgroundVeryHighContrast">#666666</color>
+    <color name="colorOnBackgroundHighContrast">#909090</color>
+    <color name="colorOnBackgroundMediumContrast">#AAAAAA</color>
+    <color name="colorOnBackgroundLowContrast">#E0E0E0</color>
+    <color name="colorOnBackgroundVeryLowContrast">#E6E6E6</color>
+    <color name="colorOnBackgroundUltraLowContrast">#EAEAEA</color>
+
+    <color name="colorCannonRed">#D84315</color>
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/storefront_navigation"
+    app:startDestination="@id/exploreFragment">
+
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.gavinsappcreations.snackcannon.ui.storefront.explore.ExploreFragment"
+        android:label="ExploreFragment"
+        tools:layout="@layout/fragment_explore" >
+        <action
+            android:id="@+id/action_exploreFragment_to_addressDetailsFragment_inStorefront"
+            app:destination="@id/addressDetailsFragment_inStorefront" />
+        <action
+            android:id="@+id/action_exploreFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.gavinsappcreations.snackcannon.ui.storefront.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.gavinsappcreations.snackcannon.ui.storefront.account.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_addressDetailsFragment"
+            app:destination="@id/addressDetailsFragment_inStorefront" />
+        <action
+            android:id="@+id/action_accountFragment_to_contactInfoFragment"
+            app:destination="@id/contactInfoFragment_inStorefront" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.gavinsappcreations.snackcannon.ui.storefront.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/addressDetailsFragment_inStorefront"
+        android:name="com.gavinsappcreations.snackcannon.ui.login.address_details.AddressDetailsFragment"
+        android:label="AddressDetailsFragment" >
+        <argument
+            android:name="isUserInLoginFlow"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactInfoFragment_inStorefront"
+        android:name="com.gavinsappcreations.snackcannon.ui.login.contact_info.ContactInfoFragment"
+        android:label="ContactInfoFragment" >
+        <argument android:name="isUserInLoginFlow"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchResultFragment"
+        android:name="com.gavinsappcreations.snackcannon.ui.storefront.search_result.SearchResultFragment"
+        android:label="SearchResultFragment" >
+        <argument
+            android:name="snackCategory"
+            app:argType="com.gavinsappcreations.snackcannon.data.domain.SnackCategory"
+            android:defaultValue="NONE" />
+        <argument
+            android:name="searchTerm"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+    </fragment>
+
+</navigation>

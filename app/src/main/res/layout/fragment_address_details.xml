@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.gavinsappcreations.snackcannon.ui.login.address_details.AddressDetailsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_marginRight="@dimen/margin_normal"
+        android:orientation="vertical"
+        tools:context=".ui.login.address_details.AddressDetailsFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/autocomplete_fragment"
+                    android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/instructions_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginRight="@dimen/margin_normal"
+                    android:text="@string/enter_your_delivery_address_followed_by_any_optional_information"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/address_textInputLayout"
+                    style="@style/TextInputLayoutAppearance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    android:hint="@string/delivery_address"
+                    app:boxCornerRadiusBottomEnd="@dimen/corner_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/corner_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/corner_radius"
+                    app:boxCornerRadiusTopStart="@dimen/corner_radius"
+                    app:hintAnimationEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/instructions_textView">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/delivery_address_textInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:drawableStart="@drawable/ic_search"
+                        android:drawablePadding="@dimen/margin_12dp"
+                        android:drawableTint="@color/text_input_drawable_tint"
+                        android:focusable="false"
+                        android:onClick="@{() -> viewModel.showAutocompleteFragment()}"
+                        android:text="@={viewModel.viewState.deliveryAddress}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/unit_number_textInputLayout"
+                    style="@style/TextInputLayoutAppearance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    enabledIfStringNotNullAndNotEmpty="@{viewModel.viewState.deliveryAddress}"
+                    android:hint="@string/unit_number"
+                    app:hintAnimationEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/address_textInputLayout"
+                    app:placeholderText="Apt/suite/floor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/unit_number_textInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_building"
+                        android:drawablePadding="@dimen/margin_12dp"
+                        android:drawableTint="@color/text_input_drawable_tint"
+                        android:maxLength="50"
+                        android:text="@={viewModel.viewState.unitNumber}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/delivery_notes_textInputLayout"
+                    style="@style/TextInputLayoutAppearance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    enabledIfStringNotNullAndNotEmpty="@{viewModel.viewState.deliveryAddress}"
+                    android:hint="@string/delivery_notes"
+                    app:hintAnimationEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/unit_number_textInputLayout"
+                    app:placeholderText="Helpful instructions for the driver">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/delivery_notes_textInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_notes"
+                        android:drawablePadding="@dimen/margin_12dp"
+                        android:drawableTint="@color/text_input_drawable_tint"
+                        android:maxLength="200"
+                        android:text="@={viewModel.viewState.deliveryNotes}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/submit_address_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_12dp"
+            enabledIfStringNotNullAndNotEmpty="@{viewModel.viewState.deliveryAddress}"
+            android:onClick="@{() -> viewModel.writeProfileToFirestore()}"
+            android:paddingTop="@dimen/margin_normal"
+            android:paddingBottom="@dimen/margin_normal"
+            android:text="@string/continue_button_text" />
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "900337256240",
+    "project_id": "snackcannon-4515d",
+    "storage_bucket": "snackcannon-4515d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900337256240:android:785412446b6c2439f32af5",
+        "android_client_info": {
+          "package_name": "com.gavinsappcreations.snackcannon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900337256240-vljhodtdrhctvd1mf3ul2s1os2iesmb9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gavinsappcreations.snackcannon",
+            "certificate_hash": "d7e673ce1dd74c23ac96ff5d7261bc2db597a925"
+          }
+        },
+        {
+          "client_id": "900337256240-pdsn2ge3aigsmhkcvl46cn9sr9bajfua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChQyOMNZ0RtA2_tCo994ytuLJcN_chplg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "900337256240-pdsn2ge3aigsmhkcvl46cn9sr9bajfua.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

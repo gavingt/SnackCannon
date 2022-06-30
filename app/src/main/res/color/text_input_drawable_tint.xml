@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Lets us customize the TextInputLayout drawable tint color -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/colorOnBackgroundLowContrast" android:state_enabled="false"/>
+    <item android:color="@color/colorOnBackgroundVeryHighContrast"/>
+</selector>

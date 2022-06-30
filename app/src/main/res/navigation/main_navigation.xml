@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/authenticationFragment"
+        android:name="com.gavinsappcreations.snackcannon.ui.login.authentication.AuthenticationFragment"
+        android:label="AuthenticationFragment"
+        tools:layout="@layout/fragment_authentication">
+        <action
+            android:id="@+id/action_authenticationFragment_to_addressDetailsFragment"
+            app:destination="@id/addressDetailsFragment" />
+        <action
+            android:id="@+id/action_authenticationFragment_to_storefrontFragment"
+            app:destination="@id/storefrontFragment"
+            app:popUpTo="@id/authenticationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressDetailsFragment"
+        android:name="com.gavinsappcreations.snackcannon.ui.login.address_details.AddressDetailsFragment"
+        android:label="fragment_address_details"
+        tools:layout="@layout/fragment_address_details">
+        <action
+            android:id="@+id/action_addressDetailsFragment_to_contactInfoFragment"
+            app:destination="@id/contactInfoFragment" />
+        <argument
+            android:name="isUserInLoginFlow"
+            app:argType="boolean"
+            android:defaultValue="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactInfoFragment"
+        android:name="com.gavinsappcreations.snackcannon.ui.login.contact_info.ContactInfoFragment"
+        android:label="ContactInfoFragment"
+        tools:layout="@layout/fragment_contact_info">
+        <action
+            android:id="@+id/action_contactInfoFragment_to_storefrontFragment"
+            app:destination="@id/storefrontFragment"
+            app:popUpTo="@id/authenticationFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="isUserInLoginFlow"
+            app:argType="boolean"
+            android:defaultValue="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        tools:layout="@layout/fragment_splash"
+    android:name="com.gavinsappcreations.snackcannon.ui.login.splash.SplashFragment"
+        android:label="SplashFragment">
+        <action
+            android:id="@+id/action_splashFragment_to_authenticationFragment"
+            app:destination="@id/authenticationFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_storefrontFragment"
+            app:destination="@id/storefrontFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/storefrontFragment"
+        android:name="com.gavinsappcreations.snackcannon.ui.storefront.StorefrontFragment"
+        android:label="StorefrontFragment" />
+</navigation>

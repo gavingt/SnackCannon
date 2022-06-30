@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.gavinsappcreations.snackcannon.ui.storefront.explore.ExploreViewModel" />
+
+        <variable
+            name="snackCategories"
+            type="com.gavinsappcreations.snackcannon.data.domain.SnackCategory" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 1st row of categories-->
+            <LinearLayout
+                android:id="@+id/categories_first_row_linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorBackgroundVariant"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/top_horizontal_line_view">
+
+                <TextView
+                    android:id="@+id/baked_category_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="@dimen/margin_small"
+                    android:gravity="center_horizontal"
+                    android:onClick="@{() -> viewModel.onNavigateToCategory(snackCategories.BAKED)}"
+                    android:padding="@dimen/margin_small"
+                    android:text="@string/baked"
+                    android:textSize="@dimen/category_title_text_size"
+                    android:textStyle="bold"
+                    app:drawableTopCompat="@drawable/category_baked" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorOnBackgroundLowContrast" />
+
+                <TextView
+                    android:id="@+id/salty_category_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="@dimen/margin_small"
+                    android:gravity="center_horizontal"
+                    android:onClick="@{() -> viewModel.onNavigateToCategory(snackCategories.SALTY)}"
+                    android:padding="@dimen/margin_small"
+                    android:text="@string/salty"
+                    android:textSize="@dimen/category_title_text_size"
+                    android:textStyle="bold"
+                    app:drawableTopCompat="@drawable/category_salty" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorOnBackgroundLowContrast" />
+
+                <TextView
+                    android:id="@+id/nuts_category_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="@dimen/margin_small"
+                    android:gravity="center_horizontal"
+                    android:onClick="@{() -> viewModel.onNavigateToCategory(snackCategories.NUTS)}"
+                    android:padding="@dimen/margin_small"
+                    android:text="@string/nuts"
+                    android:textSize="@dimen/category_title_text_size"
+                    android:textStyle="bold"
+                    app:drawableTopCompat="@drawable/category_nuts" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/horizontal_line_between_category_rows_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorOnBackgroundLowContrast"
+                app:layout_constraintTop_toBottomOf="@id/categories_first_row_linearLayout" />
+
+            <!-- 2nd row of categories-->
+            <LinearLayout
+                android:id="@+id/categories_second_row_linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorBackgroundVariant"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/horizontal_line_between_category_rows_view">
+
+                <TextView
+                    android:id="@+id/candy_category_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="@dimen/margin_small"
+                    android:gravity="center_horizontal"
+                    android:onClick="@{() -> viewModel.onNavigateToCategory(snackCategories.CANDY)}"
+                    android:padding="@dimen/margin_small"
+                    android:text="@string/candy"
+                    android:textSize="@dimen/category_title_text_size"
+                    android:textStyle="bold"
+                    app:drawableTopCompat="@drawable/category_candy" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorOnBackgroundLowContrast" />
+
+                <TextView
+                    android:id="@+id/frozen_snacks_category_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="@dimen/margin_small"
+                    android:gravity="center_horizontal"
+                    android:onClick="@{() -> viewModel.onNavigateToCategory(snackCategories.FROZEN)}"
+                    android:padding="@dimen/margin_small"
+                    android:text="@string/frozen"
+                    android:textSize="@dimen/category_title_text_size"
+                    android:textStyle="bold"
+                    app:drawableTopCompat="@drawable/category_frozen" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorOnBackgroundLowContrast" />
+
+
+                <TextView
+                    android:id="@+id/drinks_category_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="@dimen/margin_small"
+                    android:gravity="center_horizontal"
+                    android:onClick="@{() -> viewModel.onNavigateToCategory(snackCategories.DRINKS)}"
+                    android:padding="@dimen/margin_small"
+                    android:text="@string/drinks"
+                    android:textSize="@dimen/category_title_text_size"
+                    android:textStyle="bold"
+                    app:drawableTopCompat="@drawable/category_drinks" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

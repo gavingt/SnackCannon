@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Lets us customize the TextInputLayout hint color when the TextInputEditText is empty -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="?attr/colorOnBackgroundLowContrast" android:state_enabled="false"/>
+    <item android:color="?attr/editTextColor"/>
+</selector>
