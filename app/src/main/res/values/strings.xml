@@ -1,5 +1,5 @@
 <resources>
-    <string name="google_places_api_key">AIzaSyAkkZ1JGxssfd9Ny7sD-6uGrwYr79LVPm8</string>
+    <string name="google_places_api_key">INSERT API KEY HERE</string>
 
     <string name="app_name">SnackCannon</string>
     <string name="invalid_phone_number">Invalid phone number</string>
